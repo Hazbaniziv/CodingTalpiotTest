@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ClassAvrageProgram
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int sumgrades = 0,numberoffail = 0, numberofimprove = 0, numberofhighscore = 0;
+            int[] arr = new int[5];
+            Console.WriteLine("enter {0} grades", arr.Length);
+            for (int i = 0; i < arr.Length; i++)
+            {
+                string grade = Console.ReadLine();
+                int checkgrade = int.Parse(grade);
+                if (checkgrade <= 100)
+                {
+                    arr[i] = int.Parse(grade);
+                    sumgrades = sumgrades + arr[i];
+                    
+                }
+                else
+                {
+                    Console.WriteLine("Enter numbers between 0 to 100.");
+                    Console.WriteLine("Number bigger than 100 is fail");
+                    Console.WriteLine();
+                }
+            }
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] <= 55)
+                {
+                    numberoffail = numberoffail + 1;
+                }
+                if (arr[i] >= 56 && arr[i] <= 80)
+                {
+                    numberofimprove = numberofimprove + 1;
+                }
+                if (arr[i] > 80 && arr[i] <= 100)
+                {
+                    numberofhighscore = numberofhighscore + 1;
+                }
+            }
+            double avragegrade = sumgrades / arr.Length;
+            Console.WriteLine("the avrage is = {0}", avragegrade);
+            Console.WriteLine();
+            Console.WriteLine("Number of fails = {0}", numberoffail);
+            Console.WriteLine("Number of need improvement in class = {0}", numberofimprove);
+            Console.WriteLine("Number of highest score in class from 88 to 100 = {0}", numberofhighscore);
+        }
+    }
+}
